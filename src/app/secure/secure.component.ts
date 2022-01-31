@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-secure',
@@ -10,7 +11,7 @@ export class SecureComponent implements OnInit {
 
   user: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -19,15 +20,14 @@ export class SecureComponent implements OnInit {
     })
   this.http.get('http://localhost:8000/api/auth', {headers: headers}).subscribe(
       (result: any) => {
-        // console.log('Success');
         // console.log(result);
         this.user = result.user
       },
 
       error => {
-        console.log('Error');
-        console.log(error);
-
+        // console.log(error);
+        localStorage.removeItem('token');
+        this.router.navigate(['/login'])
       }
     )
   }

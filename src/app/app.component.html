@@ -10,13 +10,18 @@
       </ul>
 
       <div class="navbar-nav ">
-          <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/register" >Register</a>
+      </div>
+      <div class="navbar-nav ">
+          <a class="nav-link" routerLink="/login" *ngIf="auth == false">Login</a>
+          <a class="nav-link" routerLink="/login" *ngIf="auth == true" (click)="logout()">Logout</a>
       </div>
 
     </div>
   </div>
 </nav>
 <div class="container">
+  <br>
   <router-outlet></router-outlet>
 </div>
 

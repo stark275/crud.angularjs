@@ -1,0 +1,31 @@
+<form [formGroup]="form" (submit)="submit()">
+  <h1>Please, Register</h1>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail2" class="form-label">Name</label>
+    <input type="text" formControlName="name" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="exampleInputPassword2" class="form-label">Password</label>
+        <input type="password" formControlName="password_confirmation" class="form-control" id="exampleInputPassword2">
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+
